@@ -15,11 +15,24 @@
       const container = document.getElementById("root");
       const root = ReactDOM.createRoot(container);
 
+      // Destructuring
+      function Header({ name }) {
+        return <h1>Learning React Basic with {name ? name : "Diah"} </h1>;
+      }
+
+      function HomePage() {
+        return (
+          <>
+            <Header />
+            <Header name="Rifai" />
+          </>
+        );
+      }
+
       // Props
       // function Header(props) {
       //   return <h1>Basic React Course by {props.name} 🚀</h1>;
       // }
-
       // function HomePage() {
       //   return (
       //     <>
