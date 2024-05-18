@@ -15,19 +15,36 @@
       const container = document.getElementById("root");
       const root = ReactDOM.createRoot(container);
 
-      // Destructuring
-      function Header({ name }) {
-        return <h1>Learning React Basic with {name ? name : "Diah"} </h1>;
+      // Elemen Map
+      function Header() {
+        return <h1>Learning React Basic by</h1>;
       }
-
       function HomePage() {
+        const names = ["Rifai", "Tyas", "Bagus", "Ahmad", "Joko"];
         return (
           <>
             <Header />
-            <Header name="Rifai" />
+            <ul>
+              {names.map((name) => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
           </>
         );
       }
+
+      // Destructuring
+      // function Header({ name }) {
+      //   return <h1>Learning React Basic with {name ? name : "Diah"} </h1>;
+      // }
+      // function HomePage() {
+      //   return (
+      //     <>
+      //       <Header />
+      //       <Header name="Rifai" />
+      //     </>
+      //   );
+      // }
 
       // Props
       // function Header(props) {
