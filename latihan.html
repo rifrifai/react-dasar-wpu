@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      // const container = document.getElementById("app");
+      // const app = ReactDOM.createRoot("container");
+
+      // function HomePage() {
+      //   function Tombol({ title }) {
+      //     if (angka == 10 || angka < 0) {
+      //       return (
+      //         <button onClick={title == "-" ? Kurang : Tambah} disabled>
+      //           {title ? title : ""}
+      //         </button>
+      //       );
+      //     } else {
+      //       return (
+      //         <button onClick={title == "-" ? Kurang : Tambah}>
+      //           {title ? title : ""}
+      //         </button>
+      //       );
+      //     }
+      //   }
+
+      //   function Tambah() {
+      //     setAngka(angka + 1);
+      //   }
+      //   function Kurang() {
+      //     setAngka(angka - 1);
+      //   }
+      //   function Reset() {
+      //     setAngka(0);
+      //   }
+      //   function ResetBtn() {
+      //     if (angka == 10 || angka < 0) {
+      //       return <button onClick={Reset}>Reset</button>;
+      //     } else {
+      //       return (
+      //         <button onClick={Reset} disabled>
+      //           Reset
+      //         </button>
+      //       );
+      //     }
+      //   }
+      //   const [angka, setAngka] = React.useState(0);
+      //   return (
+      //     <>
+      //       <Tombol title="-" />
+      //       <span>{angka == 10 || angka < 0 ? "Done!" : angka}</span>
+      //       <Tombol title="+" /> <br />
+      //       <ResetBtn />
+      //     </>
+      //   );
+      // }
+
+      // app.render(<HomePage />);
+
+      const container = document.getElementById("app");
+      const app = ReactDOM.createRoot(container);
+
+      function HomePage() {
+        function Tombol({ title }) {
+          if (angka == 10 || angka < 0) {
+            return (
+              <button onClick={title == "-" ? Kurang : Tambah} disabled>
+                {title ? title : ""}
+              </button>
+            );
+          } else {
+            return (
+              <button onClick={title == "-" ? Kurang : Tambah}>
+                {title ? title : ""}
+              </button>
+            );
+          }
+        }
+
+        function Tambah() {
+          setAngka(angka + 1);
+        }
+
+        function Kurang() {
+          setAngka(angka - 1);
+        }
+
+        function Reset() {
+          setAngka(0);
+        }
+
+        function ResetBtn() {
+          if (angka == 10 || angka < 0) {
+            return <button onClick={Reset}>Reset</button>;
+          } else {
+            return (
+              <button onClick={Reset} disabled>
+                Reset
+              </button>
+            );
+          }
+        }
+
+        const [angka, setAngka] = React.useState(0);
+
+        return (
+          <>
+            <Tombol title="-" />
+            <span>{angka == 10 || angka < 0 ? "done!" : angka}</span>
+            <Tombol title="+" />
+            <br />
+            <ResetBtn />
+          </>
+        );
+      }
+
+      app.render(<HomePage />);
+    </script>
+  </body>
+</html>
