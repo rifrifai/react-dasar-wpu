@@ -1,9 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
-
-function Header({ author }) {
-  return <h1>Learn Basic React with {author ? author : "RifT"} 🚀</h1>;
-}
+import Header from "./components/Header";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,7 +10,7 @@ function App() {
   return (
     <>
       <Header />
-      <button onClick={handleClick}> Total ({count})</button>;
+      <button onClick={handleClick}> Total ({count})</button>
     </>
   );
 }
