@@ -39,10 +39,24 @@ function Header() {
 
 function Form() {
   const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
   function handlerSubmit(e) {
     e.preventDefault();
-    alert(name);
+
+    if (!name) return;
+
+    const newItem = {
+      name: name,
+      quantity: quantity,
+      checked: false,
+      id: Date.now(),
+    };
+
+    console.log(newItem);
+
+    setName("");
+    setQuantity(1);
   }
 
   const quantityNum = [...Array(15)].map((_, i) => (
@@ -56,7 +70,12 @@ function Form() {
       <form className="add-form" onSubmit={handlerSubmit}>
         <h3>Hari ini belanja apa kita?</h3>
         <div>
-          <select>{quantityNum}</select>
+          <select
+            value={quantity}
+            onChange={(e) => setQuantity(Number(e.target.value))}
+          >
+            {quantityNum}
+          </select>
           <input
             type="text"
             placeholder="nama barang..."
