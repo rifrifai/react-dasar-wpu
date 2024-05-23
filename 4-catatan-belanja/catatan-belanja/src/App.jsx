@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 /* eslint-disable react/prop-types */
 const groceryItems = [
   {
@@ -36,6 +38,13 @@ function Header() {
 }
 
 function Form() {
+  const [name, setName] = useState("");
+
+  function handlerSubmit(e) {
+    e.preventDefault();
+    alert(name);
+  }
+
   const quantityNum = [...Array(15)].map((_, i) => (
     <option value={i + 1} key={i + 1}>
       {i + 1}
@@ -44,11 +53,16 @@ function Form() {
 
   return (
     <>
-      <form className="add-form">
+      <form className="add-form" onSubmit={handlerSubmit}>
         <h3>Hari ini belanja apa kita?</h3>
         <div>
           <select>{quantityNum}</select>
-          <input type="text" placeholder="nama barang..." />
+          <input
+            type="text"
+            placeholder="nama barang..."
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
         <button>Tambah</button>
       </form>
