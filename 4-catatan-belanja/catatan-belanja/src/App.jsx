@@ -41,6 +41,10 @@ export default function App() {
     );
   }
 
+  function handlerDeleteItems() {
+    setItems([]);
+  }
+
   return (
     <div className="app">
       <Header />
@@ -49,6 +53,7 @@ export default function App() {
         items={items}
         onDeleteItem={handlerDeleteItem}
         onToggleItem={handlerToggleItem}
+        onDeleteItems={handlerDeleteItems}
       />
       <Footer />
     </div>
@@ -112,7 +117,7 @@ function Form({ onAddItem }) {
   );
 }
 
-function GroceryList({ items, onDeleteItem, onToggleItem }) {
+function GroceryList({ items, onDeleteItem, onToggleItem, onDeleteItems }) {
   return (
     <>
       <div className="list">
@@ -123,6 +128,7 @@ function GroceryList({ items, onDeleteItem, onToggleItem }) {
               key={item.id}
               onDeleteItem={onDeleteItem}
               onToggleItem={onToggleItem}
+              onDeleteItems={onDeleteItems}
             />
           ))}
         </ul>
@@ -133,7 +139,7 @@ function GroceryList({ items, onDeleteItem, onToggleItem }) {
           <option value="name">Urutkan berdasarkan nama barang</option>
           <option value="checked">Urutkan berdasarkan ceklis</option>
         </select>
-        <button>Bersihkan Daftar</button>
+        <button onClick={onDeleteItems}>Bersihkan Daftar</button>
       </div>
     </>
   );
