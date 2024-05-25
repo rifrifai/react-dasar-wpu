@@ -142,6 +142,7 @@ function GroceryList({ items, onDeleteItem, onToggleItem, onDeleteItems }) {
       break;
     default:
       sortedItems = items;
+      break;
   }
 
   return (
