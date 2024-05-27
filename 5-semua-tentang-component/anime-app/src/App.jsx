@@ -62,6 +62,7 @@ export default function App() {
           <NumResult animes={animes} />
         </Search>
       </Navbar>
+      {/* mainnya di kompos */}
       <Main>
         <Box>
           <AnimeList animes={animes} onSelectedAnime={handleSelectedAnime} />
